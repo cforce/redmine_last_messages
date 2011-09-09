@@ -1,0 +1,8 @@
+= redmine_last_messages
+
+Shows latest forum messages on Home (forums from all projects the current user participates in) and on project's Overview (only the current project's forums) in a box similar to Latest News.
+
+Credits:
+Author: Pavel Vinokurov (vinokurov@axmor.com), Sergei Vasiliev (vsv@axmor.com)
+Work sponsored by Axmor Software (http://www.axmor.com)
+

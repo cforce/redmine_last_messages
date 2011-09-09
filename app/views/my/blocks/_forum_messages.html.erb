@@ -1,0 +1,10 @@
+<% if (User.current.projects.empty?) then %>
+<h3><%= l(:latest_forum_messages) %></h3>
+    <p><i><%=l(:label_no_data)%></i></p>
+<% else
+    messages = Message.find(:all, :limit => 5,
+                           :order => "#{Message.table_name}.created_on DESC",
+                           :conditions => "#{Board.table_name}.project_id in (#{User.current.projects.collect{|m| m.id}.join(',')})",
+                           :include => [:author, :board])
+end %>
+<%= render :file => "messages/message_box", :locals => {:messages =>messages} %>

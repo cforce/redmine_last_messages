@@ -1,0 +1,7 @@
+<% if User.current.allowed_to?(:view_messages, messages.project) %>
+    <p>	<%= link_to h(messages.board.name), { :controller => 'boards', :action => 'show', :project_id => messages.project, :id => messages.board } %>
+	<%= ':&nbsp;' %>
+	<%= link_to h(messages.subject), { :controller => 'messages', :action => 'show', :board_id => messages.board, :id => messages } %>
+        <br/>
+        <span class="author"><%= authoring messages.created_on, messages.author %></span></p>
+<% end %>
