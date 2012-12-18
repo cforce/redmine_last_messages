@@ -1,0 +1,16 @@
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag 'last_messages', :plugin => 'redmine_last_messages' %>
+<% end %>
+<% if (!messages.nil? and messages.any?) then  %>
+<div class="forum_messages box">
+        <h3>
+        <% if @project %>
+        <%= link_to l(:latest_forum_messages), :controller => 'boards', :action => 'index', :project_id => @project %>
+        <% else %>
+        <%= l(:latest_forum_messages) %>
+        <% end %>
+        </h3>
+        <%= render(:partial => 'messages/messages',
+                   :collection => messages ) %>
+</div>
+<% end %>

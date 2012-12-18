@@ -7,4 +7,4 @@
                            :conditions => "#{Board.table_name}.project_id in (#{User.current.projects.collect{|m| m.id}.join(',')})",
                            :include => [:author, :board])
 end %>
-<%= render :file => "messages/message_box", :locals => {:messages =>messages} %>
+<%= render :partial => "messages/message_box", :locals => {:messages =>messages} %>
